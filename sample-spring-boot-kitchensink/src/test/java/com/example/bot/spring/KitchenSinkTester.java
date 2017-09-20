@@ -83,7 +83,7 @@ public class KitchenSinkTester {
 		} catch (Exception e) {
 			thrown = true;
 		}
-		assertThat(!thrown);
-		assertThat(result.equals("Well, this is your instructor."));
+		assertThat(!thrown).isEqualTo(true);
+		assertThat(result).isEqualTo("Well, this is your instructor.");
 	}
 }
