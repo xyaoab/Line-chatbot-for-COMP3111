@@ -22,7 +22,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 			stmt = connection.prepareStatement(
 						"SELECT keyword,response FROM testdb where keyword like concat('%', ?, '%')"); 
 			
-			System.out.println("ABBY123");
+			log.info("ABBY123");
 			stmt.setString(1, text); 
 				rs = stmt.executeQuery();
 			while(rs.next()){
