@@ -265,6 +265,7 @@ public class KitchenSinkController {
             		reply = text;
             	}
                 log.info("Returns echo message {}: {}", replyToken, reply);
+                log.info("ABBY");
                 this.replyText(
                         replyToken,
                         itscLOGIN + " says " + reply
