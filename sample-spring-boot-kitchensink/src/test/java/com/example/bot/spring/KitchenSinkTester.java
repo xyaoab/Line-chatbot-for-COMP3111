@@ -122,4 +122,16 @@ public class KitchenSinkTester {
 		assertThat(!thrown).isEqualTo(true);
 		assertThat(result).isEqualTo("century");
 	}
+	@Test
+	public void testFound2() throws Exception {
+		boolean thrown = false;
+		String result = null;
+		try {
+			result = this.databaseEngine.search("Who is Prof Kim");
+		} catch (Exception e) {
+			thrown = true;
+		}
+		assertThat(!thrown);
+		assertThat(result.equals("Well, this is your instructor."));
+	}
 }
