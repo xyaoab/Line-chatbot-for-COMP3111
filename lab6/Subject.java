@@ -1,6 +1,5 @@
-package skeleton;
-
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Subject {
@@ -22,12 +21,25 @@ public class Subject {
 		observers.remove(obj);
 	}
 
+	/**
+	 *  Previously u let the Subject to decide which observer should "unsubscribe"
+	 *  yet this is not the reality:
+	 *  it should be, you announce information to everyone
+	 *  and let each observers to decide whether they want to quit or not;
+	 *  
+	 * */
 	public void notifyObservers() {
 		// TODO: notify every observers
+		/*for (Observer observer: new ArrayList<>(observers)){
+			observer.update();
+		}*/
+		for(Observer obj:observers) {
+			obj.update();
+		}	
 	}
 
 	public void setMessage(String msg) {
-		this.message=msg;
+		this.message=msg; // save the current ready id to Class field "message" -. notifyObservers() can read it
 		this.changed=true;
 		notifyObservers();
 	}

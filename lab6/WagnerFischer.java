@@ -1,4 +1,4 @@
-package skeleton;
+//package skeleton;
 public class WagnerFischer {
     private char[] s1;
     private char[] s2;

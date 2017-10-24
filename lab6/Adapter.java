@@ -1,10 +1,10 @@
-package skeleton;
+//package skeleton;
 
 import java.util.HashMap;
 
 public class Adapter {
 	public static final String[] BEVERAGES = new String[] {
-			"Caffè Americano", "Caffè Mocha", "Caffè Latte", 
+			"Caffe Americano", "Caffe Mocha", "Caffe Latte", 
 			"Cappuccino", "Caramel Macchiato", "Espresso" }; // You can change these
 
 	/**
@@ -15,5 +15,16 @@ public class Adapter {
 	**/
 	public String getBeverage(String s){
 		// TODO: find the word with minimum edit distance
+		int dis=s.length();
+		String drink=null;
+		for(int i=0;i<BEVERAGES.length;i++) {
+			 WagnerFischer wf = new WagnerFischer(BEVERAGES[i], s);
+			 int cur=wf.getDistance();
+			 if (cur< dis && cur<=3) {
+				 dis=cur;
+				 drink=BEVERAGES[i];
+			 }
+		}
+		return drink;
 	}
 }

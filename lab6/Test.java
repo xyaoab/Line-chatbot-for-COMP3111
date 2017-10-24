@@ -1,4 +1,4 @@
-package skeleton;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,7 +18,7 @@ public class Test {
 		
 		// TODO: possible setup
 		Subject starbucks = new Subject();
-		Adapter adapter = new Adapter();
+		Adapter adapter = new Adapter(); //?????????? where is Adapter defined?
 		int id = 1;
 		
 		try {
@@ -45,18 +45,21 @@ public class Test {
 						System.out.println(String.format("%s not found.", drink)); //fail
 					}
 					break;
-				case "2":
+				case "2": // notify observers when drink is ready; order should be the ID of observer;
 					System.out.println(MESSAGE_SELECT_TWO);
 					String order = br.readLine();
 					// TODO: act appropriately according to your design
 					starbucks.setMessage(order);
 					break;
+
 				case "3":
 					System.out.println(MESSAGE_SELECT_THREE);
 					// print all id in the queue
 					for( Observer obs : starbucks.getQueue() ) System.out.println(obs.getID()); 
 					break;
+
 				case "4":
+					System.out.println(MESSAGE_SELECT_FOUR);
 					break loop;
 				default:
 					System.out.println(MESSAGE_ERROR);

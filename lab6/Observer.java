@@ -1,5 +1,3 @@
-package skeleton;
-
 public class Observer {
 	private int id;
 	private Subject subject;
@@ -24,5 +22,13 @@ public class Observer {
 		// TODO: The observer will exit the queue 
 		// once the notification has value >= this.id+7.
 		// Don't forget they will leave if it is their number too.
+		int ready=Integer.parseInt(subject.getMessage());
+		System.out.println(String.format("%s is ready"
+				, ready));
+		if(ready>=this.id+7 || ready== this.id) {
+			this.unsubscribe();
+			System.out.println(String.format("%s is left"
+					, this.id));
+		}
 	}
 }
